@@ -1,0 +1,619 @@
+:root {
+  --main-color: #20c997;
+  --light-color: #dee3e4;
+  --main-transition: 0.3s;
+  --padding-section: 50px;
+  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --bg-section: rgb(250, 250, 250);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+img {
+  width: 100%;
+}
+button {
+  background-color: transparent;
+  border: transparent;
+}
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  margin-block: 50px;
+  z-index: 2;
+}
+.title::before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  text-transform: uppercase;
+  left: 0;
+  top: 0;
+  color: #eee;
+  z-index: -1;
+  font-size: 120px;
+  font-weight: 700;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+  }
+  .title::before {
+    font-size: 80px;
+  }
+}
+@media (max-width: 576px) {
+  .title {
+    font-size: 18px;
+  }
+  .title::before {
+    font-size: 60px;
+  }
+}
+@media (max-width: 400px) {
+  .title {
+    font-size: 15px;
+  }
+  .title::before {
+    font-size: 35px;
+  }
+}
+@keyframes arrow-down {
+  100% {
+    bottom: 30px;
+  }
+}
+/* Start Nav Section  */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-block: 22px;
+  z-index: 3;
+  transition: 1.5s;
+}
+nav .bars {
+  display: none;
+  font-size: 28px;
+  width: 100%;
+  text-align: end;
+  color: white;
+  padding-inline-end: 30px;
+  cursor: pointer;
+}
+nav .logo {
+  position: absolute;
+  left: 10px;
+}
+nav .links {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
+}
+nav .links a {
+  margin-inline: 15px;
+  transition: var(--main-transition);
+}
+nav .links a.active {
+  color: var(--main-color);
+}
+nav .links a:hover {
+  color: var(--main-color)
+}
+@media (max-width: 991px) {
+  nav {
+    padding-block: 0px;
+  }
+  nav .logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    margin-inline-start: 10px;
+    margin-block: 10px;
+  }
+  nav .logo img {
+    width: 15%;
+  }
+  nav i:nth-child(2) {
+    display: none;
+  }
+  nav .links-responsive {
+    flex-direction: column;
+    text-align: flex-start;
+    width: 100%;
+    background-color: #333;
+    height: 0;
+    overflow: hidden;
+    transition: 1s;
+  }
+  nav .bars {
+    display: block;
+  }
+  nav .bars i {
+  }
+  nav .links-responsive li {
+    margin-inline: 0px;
+    padding-block: 15px;
+  }
+  nav .links-responsive li:not(:last-child) {
+    border-bottom: 1px solid black;
+  }
+}
+/* End Nav Section  */
+/* Start Header Section */
+header {
+  background-image: url('./../images/intro-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+}
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7)
+}
+header .header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  color: white;
+}
+header .header-content h2 {
+  font-weight: 500;
+  font-size: 25px;
+}
+header .header-content h1 {
+  font-weight: 600;
+  font-size: 60px;
+  margin-block: 25px;
+}
+header .header-content p {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--light-color);
+  margin-block-end: 25px;
+}
+header .header-content button {
+  font-weight: 600;
+  font-size: 18px;
+  border: 2px solid var(--main-color);
+  padding: 15px 35px;
+  border-radius: 25px;
+  transition: var(--main-transition);
+}
+header .header-content button:hover {
+  background-color: var(--main-color);
+  border-color: transparent;
+  transition: var(--main-transition);
+}
+header .header-content button a {
+  color: var(--main-color);
+}
+header .header-content button:hover a {
+  color: white;
+}
+header .header-content i {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 23px;
+  animation: arrow-down 1s infinite linear alternate;
+}
+@media (max-width: 576px) {
+  header .header-content h2 {
+    font-size: 15px;
+  }
+  header .header-content h1 {
+    font-size: 40px;
+  }
+  header .header-content p {
+    font-size: 10px;
+  }
+  header .header-content button {
+      padding: 10px 25px;
+  }
+  header .header-content a {
+    font-size: 15px;
+
+  }
+}
+/* End Header Section */
+/* Start Know Section */
+#know {
+  padding-block: var(--padding-section);
+}
+#know .title::before {
+  content: "About Me"
+}
+#know .know-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#know .know-content {
+  width: 56%;
+}
+#know .know-table {
+  width: 35%;
+}
+#know .know-content h3 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-block-end: 15px;
+}
+#know .know-content h3 span {
+  color: var(--main-color);
+}
+#know .know-content p {
+  font-weight: 400;
+  font-size: 16px;
+  margin-block: 10px;
+  line-height: 2;
+}
+#know .know-table tr {
+  padding: 15px 0;
+  display: block;
+}
+#know .know-table tr:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+#know .know-table button {
+  background-color: var(--main-color);
+  padding: 15px 40px;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  margin-block-start: 20px;
+}
+#know .know-table button a {
+  font-weight: 500;
+  font-size: 15px;
+}
+#know .know-nums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block-start: 20px;
+}
+#know .know-nums .box {
+  padding: 10px 50px;
+  text-align: center;
+  width: 25%;
+}
+#know .know-nums .box:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+#know .know-nums .box p:nth-child(1) {
+  font-weight: 600;
+  font-size: 60px;
+  color: #888
+}
+#know .know-nums .box p:nth-child(2) {
+  font-weight: 500;
+  font-size: 20px;
+}
+@media (max-width: 991px) {
+  #know .know-nums .box {
+    width: calc(100% / 3);
+    border-right: transparent !important;
+  }
+}
+@media (max-width: 767px) {
+  #know .know-wrapper {
+    justify-content: center;
+    align-items: center;
+  }
+  #know .know-wrapper .know-content,
+  #know .know-wrapper .know-table {
+    width: 100%;
+  }
+  #know .know-nums .box {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 576px) {
+  #know .know-nums .box {
+    width: 100%;
+    text-align: center;
+  }
+  #know .know-nums .box #num {
+    font-size: 40px;
+  }
+  #know .know-nums .box p:nth-child(2) {
+    font-size: 15px;
+  }
+  #know .know-content h3 {
+    font-size: 20px;
+  }
+  #know .know-content p {
+    font-size: 13px;
+  }
+  #know .know-table tr {
+    font-size: 14px;
+  }
+  #know .know-table button {
+    padding: 10px 30px;
+  }
+  #know .know-table button a {
+    font-size: 14px;
+  }
+}
+/* End Know Section */
+/* Start What Section */
+#what {
+  padding-block: var(--padding-section);
+  background-color: var(--bg-section);
+}
+#what .title::before {
+  content: "services";
+}
+#what .what-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px 0;
+}
+#what .what-wrapper .box {
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#what .what-wrapper .icon {
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1), 0 4px 17px 0 rgba(0, 0, 0, 0.30);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline-end: 15px;
+}
+#what .what-wrapper .icon i {
+  font-size: 25px;
+  color: var(--main-color);
+}
+#what .what-wrapper h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+#what .what-wrapper p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+@media (max-width: 991px) {
+  #what .what-wrapper h3 {
+  font-size: 18px;
+}
+#what .what-wrapper p {
+  font-size: 14px;
+}
+}
+@media (max-width: 767px) {
+  #what .what-wrapper .box {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  #what .what-wrapper .icon {
+    margin-block-end: 30px;
+  }
+}
+/* End What Section */
+/* Start Resume Section */
+#resume {
+  padding-block: var(--padding-section);
+}
+#resume .title::before {
+  content: "summary"
+}
+#resume .resume-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#resume .resume-wrapper .column h3 {
+  font-size: 25px;
+  font-weight: 600;
+}
+#resume .resume-wrapper .column {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
+#resume .resume-wrapper .box {
+  border: 1px solid #ddd;
+  padding: 23px 14px;
+}
+#resume .resume-wrapper span {
+  background-color: var(--main-color);
+  padding: 2px 4px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+#resume .resume-wrapper h4 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-block: 15px 3px;
+}
+#resume .resume-wrapper h6 {
+  font-weight: 400;
+  font-size: 17px;
+  color: #dc3545;
+  margin-block-end: 20px;
+}
+.skills h3 {
+  font-weight: 600;
+  font-size: 25px;
+  margin-block: 40px 13px;
+}
+.skills .skills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px 0;
+}
+.skills .skills-wrapper .skill-box {
+  width: 49%;
+}
+.skills .skills-wrapper .skill-box .skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-block-end: 7px;
+}
+.skills .skills-wrapper .skill-box .skill-progress {
+  width: 100%;
+  height: 12px;
+  border-radius: 5px;
+  background-color: #ddd;
+  position: relative;
+  overflow: hidden;
+}
+.skills .skills-wrapper .skill-box .skill-progress span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  background-color: var(--main-color);
+  width: 50%;
+  height: 100%;
+}
+.skills button {
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  display: block;
+  margin-inline: auto;
+  margin-block-start: 40px;
+  transition: var(--main-transition);
+}
+.skills button:hover {
+  background-color: #ccc;
+}
+.skills button i {
+  margin-inline-start: 8px;
+}
+.skills button a {
+  color: #ccc;
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 15px 40px;
+  transition: var(--main-transition);
+}
+.skills button:hover a {
+  color: white;
+}
+@media (max-width: 767px) {
+  #resume .resume-wrapper .column {
+    width: 100%;
+  }
+  #resume .resume-wrapper .column:nth-child(2) h3 {
+    margin-block-start: 40px;
+  }
+  .skills .skills-wrapper .skill-box {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  #resume h3 {
+    font-size: 20px !important;
+  }
+  #resume .resume-wrapper span {
+    font-size: 11px;
+  }
+  #resume .resume-wrapper h4 {
+    font-size: 18px;
+  }
+  #resume .resume-wrapper h6 {
+    font-size: 13px;
+  }
+  #resume .resume-wrapper p {
+    font-size: 13px;
+  }
+  .skills .skill-box div {
+    font-size: 12px;
+  }
+  .skills button a {
+    font-size: 13px;
+    padding: 10px 30px;
+  }
+}
+/* End Resume Section */
+/* Start Work Section */
+#work {
+  padding-block: var(--padding-section);
+  background-color: var(--bg-section);
+}
+#work .title::before {
+  content: "portfolio";
+}
+#work .portfolio-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-inline: auto;
+
+}
+#work .portfolio-links a {
+  /* margin-inline: 30px; */
+  font-size: 18px;
+  transition: var(--main-transition);
+  color: #000;
+}
+#work .portfolio-links a.active {
+  color: var(--main-color)
+}
+#work .portfolio-links a:hover {
+  color: var(--main-color);
+}
+#work img {
+  transform: scale(100%);
+  transition: 0.3s;
+}
+@media (max-width: 576px) {
+  #work .portfolio-links {
+    width: 100%;
+    padding: 0;
+  }
+  #work .portfolio-links a {
+    font-size: 15px;
+  }
+}
+/* End Work Section */
